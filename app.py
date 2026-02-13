@@ -88,3 +88,13 @@ if uploaded_file is not None:
 # --- FOOTER ---
 st.markdown("---")
 st.caption("⚠️ Disclaimer: AI can make mistakes. Always verify sensitive information manually.")
+
+# --- DONATION BUTTON ---
+st.markdown("""
+    <div style="text-align: center; margin-top: 20px;">
+        <p>Built by a student? Saved you from a scam?</p>
+        <a href="https://www.buymeacoffee.com/glitchavi" target="_blank">
+            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
