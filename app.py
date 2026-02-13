@@ -12,9 +12,24 @@ st.set_page_config(
 # --- SIDEBAR FOR API KEY ---
 with st.sidebar:
     st.header("🔑 Setup")
-    api_key = st.text_input("Enter Google API Key:", type="password")
-    st.markdown("[Get a Free Key Here](https://aistudio.google.com/app/apikey)")
-    st.info("Your key is not saved. It's only used for this session.")
+    
+    api_key = None
+    
+    # Try to fetch from secrets (for Cloud Deployment)
+    try:
+        if "GOOGLE_API_KEY" in st.secrets:
+            api_key = st.secrets["GOOGLE_API_KEY"]
+            st.success("✅ API Key loaded automatically!")
+    except:
+        # If running locally without a secrets file, just skip this
+        pass
+    
+    # If no key found, ask the user (for Local Testing)
+    if not api_key:
+        api_key = st.text_input("Enter Google API Key:", type="password")
+        if not api_key:
+            st.warning("⚠️ Please enter a key to start.")
+        st.markdown("[Get a Free Key Here](https://aistudio.google.com/app/apikey)")
 
 # --- MAIN UI ---
 st.title("🛡️ Scam Sniffer AI")
