@@ -72,7 +72,7 @@ uploaded_file = st.file_uploader("Drop your screenshot here...", type=["jpg", "p
 if uploaded_file is not None:
     # Display the image user uploaded
     image = Image.open(uploaded_file)
-    st.image(image, caption="Your Screenshot", use_container_width=True)
+    st.image(image, caption="Your Screenshot", use_column_width=True)
     
     # The "Analyze" Button
     if st.button("🔍 Analyze Risk"):
